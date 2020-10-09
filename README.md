@@ -82,12 +82,12 @@ Get all messages of the logged-in user (as a sender or as a receiver) -  use GET
 
 
   
-Read a specific message -  use GET method on this endpoint: https://auth-rest-api-app.herokuapp.com/msg/<id>
+Read a specific message -  use GET method on this endpoint: https://auth-rest-api-app.herokuapp.com/msg/id
         
 The user should declare the message-id number he would like to read.
   
   
- Delete message - use DELETE method on this endpoint: https://auth-rest-api-app.herokuapp.com/msg/<id>
+ Delete message - use DELETE method on this endpoint: https://auth-rest-api-app.herokuapp.com/msg/id
 The user should declare the message-id he wishes to delete.
   
   
