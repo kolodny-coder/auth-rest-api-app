@@ -36,7 +36,7 @@ at the body section use "raw" and JSON
     
 }
 ```
-Click SEND
+
 
 
 Log in:
@@ -71,7 +71,7 @@ user should provide 3 parameters in the body (receiver, subject, body) in JSON f
 "subject": "message for Spider",
 "body": "If you spell Chuck Norris in Scrabble, you win. Forever."}
 ```
-Click SEND
+
 
 
 Get all unread messages of the logged-in user (as a sender or as reciver) -  use GET method on this endpoint: https://auth-rest-api-app.herokuapp.com/msg/unread
