@@ -174,7 +174,7 @@ def get_all_messages(current_user, status):
 @token_required
 def get_one_msg(current_user, msg_id):
     msg = Msg.query.filter_by(id=msg_id, user_id=current_user.id).first()\
-               or Msg.query.filter_by(id=msg_id, receiver=current_user.name).all()
+               or Msg.query.filter_by(id=msg_id, receiver=current_user.name).first()
 
     if not msg:
         return jsonify({'message': 'No msg found!'})
@@ -210,17 +210,15 @@ def create_msg(current_user):
 @app.route('/msg/<msg_id>', methods=['DELETE'])
 @token_required
 def delete_msg(current_user, msg_id):
-    messages = Msg.query.filter_by(id=msg_id, user_id=current_user.id).first() or Msg.query.filter_by(id=msg_id, receiver=current_user.name).first()
-    if messages != None:
-        for msg in messages:
-            if not msg or msg == None:
-                return jsonify({'message': 'No msg found!'})
+    msg = Msg.query.filter_by(id=msg_id, user_id=current_user.id).first()
 
-            db.session.delete(msg)
-            db.session.commit()
+    if not msg:
+        return jsonify({'message': 'No msg found!'})
 
-            return jsonify({'message': 'Message item deleted!'})
-    return jsonify({'message': 'No msg found!'})
+    db.session.delete(msg)
+    db.session.commit()
+
+    return jsonify({'message': 'Message item deleted!'})
 
 
 if __name__ == '__main__':
