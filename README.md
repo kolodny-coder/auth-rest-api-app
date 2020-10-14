@@ -106,6 +106,6 @@ the message contains the following parameters :
  Get all users:
  
  use GET method on this endpoint: https://auth-rest-api-app.herokuapp.com/user
- Note no need to be logged in for this request
+ Note no need to be logged in for this request 
  
 .
